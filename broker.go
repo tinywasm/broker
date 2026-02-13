@@ -18,8 +18,8 @@ type Broker struct {
 	queue       []Item
 	batchWindow int
 	timer       time.Timer
-	tp          time.TimeProvider
-	onFlush     func([]Item)
+
+	onFlush func([]Item)
 }
 
 // New creates a new Broker with the specified batch window in milliseconds
@@ -27,7 +27,6 @@ func New(batchWindow int) *Broker {
 	return &Broker{
 		queue:       make([]Item, 0, 16),
 		batchWindow: batchWindow,
-		tp:          time.NewTimeProvider(),
 	}
 }
 
@@ -65,7 +64,7 @@ func (b *Broker) resetTimerLocked() {
 	if b.timer != nil {
 		b.timer.Stop()
 	}
-	b.timer = b.tp.AfterFunc(b.batchWindow, b.flush)
+	b.timer = time.AfterFunc(b.batchWindow, b.flush)
 }
 
 func (b *Broker) flush() {
