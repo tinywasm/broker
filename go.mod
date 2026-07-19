@@ -4,4 +4,4 @@ go 1.25.2
 
 require github.com/tinywasm/time v0.5.0
 
-require github.com/tinywasm/fmt v0.25.4 // indirect
+require github.com/tinywasm/fmt v0.25.5 // indirect
