@@ -3,7 +3,7 @@ package broker
 import (
 	"sync"
 
-	"github.com/tinywasm/time"
+	"webtyp.com/time"
 )
 
 // Item represents a consolidated group of data

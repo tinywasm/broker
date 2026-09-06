@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tinywasm/broker"
+	"webtyp.com/broker"
 )
 
 func BrokerConsolidationShared(t *testing.T) {
